@@ -98,3 +98,18 @@
     background-color: transparent;
     padding: 4px 8px;
 }
+.actions {
+    display: flex;
+    align-items: center;
+}
+.action-btn {
+    cursor: pointer;
+    font-size: 1.8rem;
+    background-color: transparent;
+    margin-right: 12px;
+}
+.avatar {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
