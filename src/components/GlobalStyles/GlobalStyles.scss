@@ -3,6 +3,7 @@
 
 :root {
     --primary: #fe2c55;
+    --white: #fff;
     // Defaultlayout
     --default-layout-header-height: 60px;
     --default-layout-width-content: 1150px;
@@ -32,5 +33,4 @@ input,
 
 a[href] {
     text-decoration: none;
-    color: inherit;
 }
