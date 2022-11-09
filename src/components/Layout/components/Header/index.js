@@ -26,6 +26,7 @@ import { Wrapper as PopperWraper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 
 const cx = clsx.bind(styles);
 const MENU_ITEM = [
@@ -143,7 +144,7 @@ function Header() {
                             items={[...userMenu, ...MENU_ITEM, { title: 'Logout', icon: faSignOut, hr: true }]}
                             onChange={handleMenuChange}
                         >
-                            <img
+                            <Image
                                 className={cx('avatar')}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/1904b2d6558ed12ce5553d1f3e7752fb~c5_100x100.jpeg?x-expires=1668171600&x-signature=F%2BTDZqbiABIGGhepq32XutLkuhM%3D"
                                 alt="avatar"
