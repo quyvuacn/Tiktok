@@ -47,6 +47,13 @@ function SearchHeader() {
         setShowResult(false);
     };
 
+    const handleSearch = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearch(searchValue);
+        }
+    };
+
     return (
         <HeadlessTippy
             interactive
@@ -68,7 +75,7 @@ function SearchHeader() {
                     ref={inputRef}
                     value={search}
                     onChange={(e) => {
-                        setSearch(e.target.value);
+                        handleSearch(e);
                     }}
                     onFocus={() => {
                         setShowResult(true);
@@ -97,7 +104,7 @@ function SearchHeader() {
                     </>
                 )}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>

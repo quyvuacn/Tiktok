@@ -23,6 +23,8 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import SearchHeader from './SearchHeader';
+import { Link } from 'react-router-dom';
+import routesConfig from '~/utils/config/routes';
 
 const cx = clsx.bind(styles);
 const MENU_ITEM = [
@@ -89,7 +91,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    <Link className={cx('logo-link')} to={routesConfig.home}>
+                        <img src={images.logo} alt="Tiktok" />
+                    </Link>
                 </div>
                 <SearchHeader />
 
