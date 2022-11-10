@@ -9,6 +9,7 @@ import { Wrapper as PopperWraper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { useEffect, useRef, useState } from 'react';
 import { useDebounce } from '~/hooks';
+import * as request from '~/utils/request';
 
 const cx = clsx.bind(styles);
 function SearchHeader() {
@@ -22,15 +23,21 @@ function SearchHeader() {
 
     useEffect(() => {
         if (!!debounce.trim()) {
-            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-                .then((res) => res.json())
-                .then((res) => {
+            const fetchAPI = async () => {
+                try {
+                    const res = await request.get('users/search', {
+                        params: {
+                            q: debounce,
+                            type: 'less',
+                        },
+                    });
                     setSearchResult(res.data);
                     setShowClear(true);
-                })
-                .catch(() => {
-                    console.log('error');
-                });
+                } catch {
+                    setShowClear(true);
+                }
+            };
+            fetchAPI();
         } else {
             setSearchResult([]);
         }
