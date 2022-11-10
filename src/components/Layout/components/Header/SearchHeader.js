@@ -55,60 +55,64 @@ function SearchHeader() {
     };
 
     return (
-        <HeadlessTippy
-            interactive
-            visible={searchResult.length > 0 && showResult}
-            render={(attrs) => (
-                <div className={cx('search-result')} {...attrs}>
-                    <PopperWraper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((account) => {
-                            return <AccountItem key={account.id} data={account} />;
-                        })}
-                    </PopperWraper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={search}
-                    onChange={(e) => {
-                        handleSearch(e);
-                    }}
-                    onFocus={() => {
-                        setShowResult(true);
-                    }}
-                    type="text"
-                    placeholder="Search accounts and videos"
-                    spellCheck={false}
-                />
-                {!!search && (
-                    <>
-                        {showClear ? (
-                            <button
-                                className={cx('clear')}
-                                onClick={() => {
-                                    setSearch('');
-                                    inputRef.current.focus();
-                                }}
-                            >
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </button>
-                        ) : (
-                            <button className={cx('clear')}>
-                                <div className={cx('spinner')} />
-                            </button>
-                        )}
-                    </>
+        //Using a wrapper <div> or <span> tag around the reference element solves
+        //this by creating a new parentNode context.
+        <div>
+            <HeadlessTippy
+                interactive
+                visible={searchResult.length > 0 && showResult}
+                render={(attrs) => (
+                    <div className={cx('search-result')} {...attrs}>
+                        <PopperWraper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResult.map((account) => {
+                                return <AccountItem key={account.id} data={account} />;
+                            })}
+                        </PopperWraper>
+                    </div>
                 )}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={search}
+                        onChange={(e) => {
+                            handleSearch(e);
+                        }}
+                        onFocus={() => {
+                            setShowResult(true);
+                        }}
+                        type="text"
+                        placeholder="Search accounts and videos"
+                        spellCheck={false}
+                    />
+                    {!!search && (
+                        <>
+                            {showClear ? (
+                                <button
+                                    className={cx('clear')}
+                                    onClick={() => {
+                                        setSearch('');
+                                        inputRef.current.focus();
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon={faCircleXmark} />
+                                </button>
+                            ) : (
+                                <button className={cx('clear')}>
+                                    <div className={cx('spinner')} />
+                                </button>
+                            )}
+                        </>
+                    )}
 
-                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </div>
-        </HeadlessTippy>
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
     );
 }
 
