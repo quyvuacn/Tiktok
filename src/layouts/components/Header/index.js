@@ -24,7 +24,7 @@ import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import SearchHeader from './SearchHeader';
 import { Link } from 'react-router-dom';
-import routesConfig from '~/utils/config/routes';
+import config from '~/config';
 
 const cx = clsx.bind(styles);
 const MENU_ITEM = [
@@ -91,7 +91,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link className={cx('logo-link')} to={routesConfig.home}>
+                    <Link className={cx('logo-link')} to={config.routes.home}>
                         <img src={images.logo} alt="Tiktok" />
                     </Link>
                 </div>
