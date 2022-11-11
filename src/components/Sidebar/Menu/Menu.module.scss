@@ -1,0 +1,18 @@
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    transition: background-color ease-in-out 200ms;
+    &:hover {
+        background-color: rgb(22 24 35 / 3%);
+    }
+    &.active {
+        color: #fe2c55;
+    }
+}
+.title {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 8px;
+}
