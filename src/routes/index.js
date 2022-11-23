@@ -6,6 +6,7 @@ import Search from '~/pages/Search';
 import Upload from '~/pages/Upload';
 import config from '~/config';
 import Live from '~/pages/Live';
+import Tag from '~/pages/Tag';
 
 export const publicRoutes = [
     {
@@ -33,6 +34,10 @@ export const publicRoutes = [
     {
         path: config.routes.live,
         component: Live,
+    },
+    {
+        path: config.routes.tag,
+        component: Tag,
     },
 ];
 

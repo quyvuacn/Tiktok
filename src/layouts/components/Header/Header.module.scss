@@ -4,6 +4,7 @@
     --search-border-radius: 92px;
     --search-btn-width: 52px;
     position: fixed;
+    z-index: 10;
     background-color: #fff;
     width: 100%;
     height: var(--default-layout-header-height, 60px);

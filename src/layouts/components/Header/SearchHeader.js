@@ -31,6 +31,7 @@ function SearchHeader() {
                             type: 'less',
                         },
                     });
+                    console.log(res.data);
                     setSearchResult(res.data);
                     setShowClear(true);
                 } catch {
